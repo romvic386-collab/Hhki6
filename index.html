@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>VoxelCraft 4.0 - Modular & Enhanced</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.module.js"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="loading">
+        <h1 id="loading-text">Генерация текстур и инициализация...</h1>
+        <button id="skip-loading" style="position: absolute; bottom: 20px; display: none;">Skip for Testing</button>
+    </div>
+    <div id="deathScreen">
+        <div>
+            <h1 style="font-size: 48px;">Вы умерли!</h1>
+            <p>Кликните, чтобы возродиться.</p>
+        </div>
+    </div>
+    <div id="ui" style="display: none;">
+        <div>
+            <h1>VoxelCraft 4.0</h1>
+            <p>Кликните, чтобы начать</p>
+            <p>--------------------------------</p>
+            <p>WASD = Двигаться | Пробел = Прыжок/Вверх</p>
+            <p>Двойной Пробел = Полет (Вкл/Выкл)</p>
+            <p>SHIFT = Погрузиться/Вниз</p>
+            <p>ЛКМ = Сломать | ПКМ = Поставить</p>
+            <p>1-9 = Выбрать блок</p>
+            <p>E = Инвентарь | Esc = Пауза</p>
+            <p>--------------------------------</p>
+        </div>
+    </div>
+    <div id="crosshair" style="display: none;"></div>
+    <div id="info" style="display: none;">
+        Pos: <span id="pos">0, 0, 0</span><br>
+        Chunk: <span id="chunkPos">0, 0</span><br>
+        FPS: <span id="fps">0</span> | Chunks: <span id="chunkCount">0</span><br>
+        VelY: <span id="velocityY">0</span>
+    </div>
+    <div id="hud" style="display: none;">
+        <div id="hearts"></div>
+        <div id="hotbar"></div>
+    </div>
+
+    <div id="pause" style="display: none;">
+        <div>
+            <h1>Пауза</h1>
+            <button id="resume">Продолжить</button>
+            <button id="controls">Управление</button>
+        </div>
+    </div>
+
+    <div id="inventory" style="display: none;">
+        <div id="inventory-grid"></div>
+    </div>
+
+    <div id="settings" style="display: none;">
+        <div>
+            <h1>Настройки</h1>
+            <label for="render-distance">Дальность прорисовки:</label>
+            <input type="range" id="render-distance" min="2" max="10" value="5">
+            <span id="render-distance-value">5</span>
+        </div>
+    </div>
+
+    <div id="crafting" style="display: none;">
+        <div id="crafting-grid"></div>
+        <div id="crafting-output"></div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>

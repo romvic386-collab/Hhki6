@@ -1,0 +1,203 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #87CEEB;
+}
+
+canvas {
+    display: block;
+}
+
+#crosshair {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.8);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+#ui, #loading, #deathScreen, #pause {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: monospace;
+    text-align: center;
+    z-index: 20;
+}
+
+#crafting {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 50, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: monospace;
+    text-align: center;
+    z-index: 20;
+}
+
+#crafting-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 50px);
+    grid-gap: 5px;
+}
+
+#crafting-output {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid #fff;
+    margin-left: 20px;
+}
+
+#ui {
+    background-color: rgba(0, 0, 50, 0.8);
+    cursor: pointer;
+}
+
+#loading {
+    background-color: rgba(0, 0, 50, 0.9);
+    display: none;
+}
+
+#deathScreen {
+    background-color: rgba(150, 0, 0, 0.7);
+    display: none;
+    cursor: pointer;
+}
+
+#hud {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#hotbar {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.slot {
+    width: 48px;
+    height: 48px;
+    border: 2px solid rgba(160, 160, 160, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(139, 139, 139, 0.7);
+}
+
+.slot.active {
+    border: 3px solid white;
+}
+
+.block-icon {
+    width: 32px;
+    height: 32px;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+#hearts {
+    display: flex;
+    margin-bottom: 5px;
+    height: 18px;
+}
+
+.heart {
+    width: 18px;
+    height: 18px;
+    margin-right: 2px;
+}
+
+.heart-empty {
+    /* Маркер для JS */
+}
+
+#info {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    font-family: monospace;
+    text-shadow: 1px 1px 1px black;
+    pointer-events: none;
+    z-index: 10;
+}
+
+#pause {
+    background-color: rgba(0, 0, 50, 0.8);
+    display: none; /* Initially hidden */
+}
+
+#pause button {
+    font-size: 1.2em;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+#inventory {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 50, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: monospace;
+    text-align: center;
+    z-index: 20;
+}
+
+#inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(9, 50px);
+    grid-gap: 5px;
+}
+
+#inventory-grid .slot {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid #fff;
+}
+
+#settings {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 50, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: monospace;
+    text-align: center;
+    z-index: 20;
+}
