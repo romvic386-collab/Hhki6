@@ -113,12 +113,18 @@ class Game {
     }
 
     init() {
-        this.showLoading("Инициализация движка...");
         this.scene = new THREE.Scene();
+        this.camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+        // Player and UI must be initialized before showing the loading screen
+        this.player = new Player(this.camera, this.world, this);
+        this.ui = new UI(this, this.player);
+
+        this.showLoading("Инициализация движка...");
+
         this.scene.background = new THREE.Color(Config.COLOR_SKY);
         this.scene.fog = new THREE.Fog(Config.COLOR_SKY, 0, 1);
         this.updateFog(false);
-        this.camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 1000);
         const materialOpaque = new THREE.MeshStandardMaterial({
             map: this.textureAtlas,
             side: THREE.FrontSide,
@@ -131,8 +137,8 @@ class Game {
             transparent: true,
         });
         this.world = new World(this.scene, materialOpaque, materialTranslucent);
-        this.player = new Player(this.camera, this.world, this);
-        this.ui = new UI(this, this.player);
+        this.player.world = this.world; // Make sure player has the world reference after it's created
+
         this.ambientLight = new THREE.AmbientLight(0xaaaaaa);
         this.scene.add(this.ambientLight);
         this.directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
